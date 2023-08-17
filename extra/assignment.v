@@ -2,6 +2,14 @@ module test;
 reg [2:0]a1,a2;
 initial
 begin
+//#10 a1<= 2'b1;
+#20 a2<= 2'b0;
+//$display(a1,a2);
+//#10 a2<=#20 2'd2;
+//$display(a1,a2);
+//#20 a1<=#30 2'd3;
+$display(a1,a2);
+/*
 #10 a1=2'b1;
 #20 a2=2'b0;
 $display(a1,a2);
@@ -9,7 +17,13 @@ $display(a1,a2);
 $display(a1,a2);
 #20 a1<=#30 2'd3;
 $display(a1,a2);
+*/
 end
+
+always #7 begin
+a1=1'b1;
+end
+
 initial
 $monitor($time		,	"a1=%b,	a2=%b",a1,a2);
 
