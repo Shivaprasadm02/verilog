@@ -1,12 +1,27 @@
 module A ( );
 /*
+//------------------1--------------------//
 reg [8:0] a;
 initial
 begin
-a='oz1;
-$display("%0b",a);
+
+a='oz1;$display("%0b",a);-->z001
+a='oz1;$display("%b",a);-->zzzzzz001
+
+a='bz1;$display("%b",a);-->zzzzzzzz1
+a='bz1;$display("%0b",a);--->z1
+
+a='hz1;$display("%0b",a);-->z0001
+a='hz1;$display("%b",a);-->zzzzz0001
+
+a='hx1;$display("%0b",a);-->x0001
+a='h1;$display("0%b",a);-->1
+a='h0;$display("0%b",a);-->0
+
 end
-///////////
+
+
+//-----------2----------------//
 reg signed [3:0] a = -4;
 reg signed [3:0] b = 4;
 initial
@@ -17,7 +32,14 @@ b = b >>> 1;
 $display("Value of a=%b",a);
 $display("Value of b=%b",b);
 end
-////////
+/*----------
+Value of a=1100
+Value of a=1110
+Value of b=0010
+----------*/
+
+//---------------3-----------------//
+  /*
 reg [7:0] a;
 wire b;
 
